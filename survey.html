@@ -898,11 +898,8 @@
                 self_learning: document.getElementById('self_learning').value,
                 target_domain: document.getElementById('target_domain').value
             };
-    const target = document.getElementById("target_domain");
-    if (target.selectedIndex === 0) {
-        showToast("Please select your career interest before submitting.");
-        target.classList.add("error-shake");
-        return; // stop submission
+ 
+     
             // Show loading state
             const btn = document.querySelector('.save-btn');
             const originalText = btn.innerHTML;
@@ -938,9 +935,7 @@
                 slider.style.setProperty('--value', (slider.value / slider.max) * 100 + '%');
             });
         });
-            target.addEventListener("animationend", () => {
-    target.classList.remove("error-shake");
-});
+
 
 
     </script>
@@ -948,6 +943,7 @@
 </body>
 
 </html>
+
 
 
 
