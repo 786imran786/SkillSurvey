@@ -426,19 +426,6 @@
                 font-size: 0.65rem;
             }
         }
-        .error-shake {
-    animation: shake 0.3s;
-    border: 1px solid #ff4d4d;
-}
-
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    75% { transform: translateX(-3px); }
-    100% { transform: translateX(0); }
-}
-
     </style>
 </head>
 <body>
@@ -898,8 +885,7 @@
                 self_learning: document.getElementById('self_learning').value,
                 target_domain: document.getElementById('target_domain').value
             };
- 
-     
+
             // Show loading state
             const btn = document.querySelector('.save-btn');
             const originalText = btn.innerHTML;
@@ -936,15 +922,9 @@
             });
         });
 
-
-
     </script>
 
 </body>
 
 </html>
-
-
-
-
 
