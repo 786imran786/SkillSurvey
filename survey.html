@@ -426,6 +426,19 @@
                 font-size: 0.65rem;
             }
         }
+        .error-shake {
+    animation: shake 0.3s;
+    border: 1px solid #ff4d4d;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+
     </style>
 </head>
 <body>
@@ -802,7 +815,7 @@
             
             <div class="card">
                 <label for="target_domain">Select your primary career interest</label>
-                <select id="target_domain" onchange="updateProgressBar()" required>
+                <select id="target_domain" onchange="updateProgressBar()">
                     <option disabled selected>Select Your Target Domain or Current Domain</option>
                     <option>Data Science</option>
                     <option>Machine Learning</option>
@@ -885,7 +898,11 @@
                 self_learning: document.getElementById('self_learning').value,
                 target_domain: document.getElementById('target_domain').value
             };
-
+    const target = document.getElementById("target_domain");
+    if (target.selectedIndex === 0) {
+        showToast("Please select your career interest before submitting.");
+        target.classList.add("error-shake");
+        return; // stop submission
             // Show loading state
             const btn = document.querySelector('.save-btn');
             const originalText = btn.innerHTML;
@@ -921,12 +938,17 @@
                 slider.style.setProperty('--value', (slider.value / slider.max) * 100 + '%');
             });
         });
+            target.addEventListener("animationend", () => {
+    target.classList.remove("error-shake");
+});
+
 
     </script>
 
 </body>
 
 </html>
+
 
 
 
